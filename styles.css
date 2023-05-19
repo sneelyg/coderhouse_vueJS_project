@@ -5,4 +5,14 @@ body {
   h1 {
     color: navy;
     margin-left: 20px;
+
+  }
+
+  #app{
+    padding: 35px;
+
+  }
+
+  header{
+    text-align: center;
   }

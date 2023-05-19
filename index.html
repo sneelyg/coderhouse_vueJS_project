@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-    <p>This is some tests </p>
-    <script src = "./app.js" type="module"></script>
-</body>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="app">
+        <header>
+
+          <button v-on:click="aumentar()" v-bind:style="classBtn">Aumentar</button>
+            <button v-on:click="disminuir()" v-bind:style="classBtn">Disminuir</button>
+<h1>{{contador}}</h1>
+
+          <h1>Como te llamas?</h1>
+          <input type="text" v-model="nombre_input" />
+          <h1>{{titulo}} {{nombre_input}}</h1>
+          <h2>{{nombre}} {{bajada}}</h2>
+          <p>Esto fue usando v-model</p>
+        </header>
+        <main>
+          <p>Y esto será usando v-on y v-bind</p>
+          <button v-on:click="saludar()" v-bind:style="classBtn">
+            Saluda!
+          </button>
+          <p v-show="mostrar">Escóndeme con un click</p>
+          <button v-on:click="mostrar = !mostrar" v-bind:style="classBtn">
+            Show!
+          </button>
+
+          <p v-if="nombre_input.includes('Santi')">Hola Santi</p>
+          <p v-else>Tu no eres santi</p>
+
+          <ul v-for="nombre of nombres">
+            <li>{{nombre}}</li>
+          </ul>
+
+          <!-- 
+        <p>{{presentacion()}}</p>
+        <p>{{explicacion()}}</p> 
+        <p>{{salida}}</p>
+        <p>{{numero}}</p>
+        <button  v-on:click="multiplicado" value="Click" >Clickksss</button> 
+        <p>(v-on:click)Resultado: {{numero}}</p>
+        <input type="text" v-model="parrafo">
+        <p>(v-model)El input dice: {{parrafo}}</p>
+        <p v-text="mensaje"></p>
+        <div v-html="div"></div>
+        <img v-bind:src="url"/> -->
+        </main>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
 </html>
