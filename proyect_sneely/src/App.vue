@@ -2,7 +2,7 @@
   <HeaderBakery/>
   <!-- <FormularioWeb/> -->
   <MainPage/>
-  <LoginBakery/>
+  <!-- <LoginBakery/> -->
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
