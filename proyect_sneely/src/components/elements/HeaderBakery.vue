@@ -18,14 +18,16 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
-                  
+
                 </ul>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    
+
                     <li class="nav-item">
-                        <button class="btn  btn-outline-success my-2 my-sm-0" type="submit">Cart</button>
+                        <button class="btn  btn-outline-success my-2 my-sm-0" type="submit">
+                            <ShoppingCart :innerItemsCarrito="itemsEnCarrito" :inventario="inventario" />
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -34,11 +36,20 @@
 </template>
 
 <script>
+import ShoppingCart from './ShoppingCart.vue';
 export default {
     name: 'HeaderBakery',
     props: {
+        itemsEnCarrito: Array,
+        inventario: {
+            type: Array,
+            required: true
+        },
 
-    }
+    },
+    components: {
+        ShoppingCart
+    },
 }
 
 </script>

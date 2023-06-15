@@ -1,7 +1,7 @@
 <template>
-  <HeaderBakery />
+  <HeaderBakery :inventario="inventary" :itemsEnCarrito="itemsCarrito" />
   <!-- <FormularioWeb/> -->
-  <MainPage :inventario="inventary" />
+  <MainPage :inventario="inventary" @itemAdded="addItemToCart" />
 
   <LoginBakery />
 
@@ -19,14 +19,33 @@ import products from './assets/products.js'
 export default {
   name: 'App',
   data() {
-        return {
-            inventary: [],
-        }
-    },
-    created() {
-        this.inventary = products;
+    return {
+      inventary: [],  //Esta es la lista total de productos en inventario
+      itemsCarrito: [],  //Esto almacena los ID de los elementos agregados al carrito
+      renderItemsCarrito: []  //Esto tiene cada elemento agregado al carrito completo.
+    }
+  },
+  created() {
+    this.inventary = products;
 
+  },
+  methods: {
+    addItemToCart(productId) {
+      console.log(this.itemsCarrito)
+      this.itemsCarrito.push(productId)
+      this.renderCarrito()
     },
+    renderCarrito() {
+      this.renderItemsCarrito = []
+      for (elements in this.itemsCarrito) {
+        for (instrumentos in inventary) {
+          if (instrumentos.id == elements) {
+            this.renderItemsCarrito.push(instrumentos)
+          }
+        }
+      }
+    }
+  },
   components: {
     HelloWorld,
     HeaderBakery,
