@@ -1,40 +1,34 @@
 <template>
+    <div >
 
-    <div>
-   
+        <h1 class="text-secondary p-5 m-5 bg-black">Choose your weapon and join the band!</h1>
+        <div class="row justify-content-around mx-4">
+            <ProductCard v-for="(item, i) in inventario" :key="i" :imageUrl="item.image" :productName="item.name"
+                :productPrice="item.price" />
 
-        <!-- <h1 class="text-light">Main Page</h1> -->
-        <!-- <div class="row">
-            <ProductCard v-for="items, i of this.arregloDatos" 
-            :key="i" 
-            :imageUrl=items.image
-            :productName=items.name
-            :productPrice=items.price />
-
-        </div> -->
+        </div>
     </div>
 </template>
 
 <script>
-//import ProductCard from '../elements/ProductCard.vue'
-import products from '../../assets/products.js'
+import ProductCard from '../elements/ProductCard.vue'
+//import products from '../../assets/products.js'
 //import LoginBakery from '../elements/LoginBakery.vue';
 
 
 export default {
     name: 'HeaderBakery',
     props: {
+        inventario: {
+            type: Object, // Se espera un objeto
+            required: true
+        }
 
-    },
-    data() {
-        return {
-            arregloDatos: products
-        };
     },
 
     components: {
-        //ProductCard,
-       // LoginBakery
+        ProductCard,
+        // LoginBakery
     }
 }
 

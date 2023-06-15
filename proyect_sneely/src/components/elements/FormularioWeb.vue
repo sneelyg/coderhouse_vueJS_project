@@ -2,7 +2,7 @@
 
 <div>
 <form action="">
-    <label class="text-light" for="">Nombre</label>
+    <label class="text-light" for="">Username</label>
     <input type="text" id="name" v-model="nombre" />
 </form>
 <p class="text-light">{{ nombre }}</p>

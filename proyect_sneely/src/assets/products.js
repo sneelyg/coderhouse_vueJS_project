@@ -1,347 +1,107 @@
-export const products=[
+export default [
     {
-        "id": 1,
-        "name": "Rick Sanchez",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "Earth (C-137)",
-            "url": "https://rickandmortyapi.com/api/location/1"
-        },
-        "location": {
-            "name": "Citadel of Ricks",
-            "url": "https://rickandmortyapi.com/api/location/3"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+      id: 1,
+      name: 'Guitarra eléctrica',
+      price: 299.99,
+      image: 'https://www.fender.cl/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/g/e/ge434_0144522500v1.jpg'
+ 
     },
     {
-        "id": 2,
-        "name": "Morty Smith",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$19.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Citadel of Ricks",
-            "url": "https://rickandmortyapi.com/api/location/3"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+      id: 2,
+      name: 'Piano de cola',
+      price: 4999.99,
+      image: 'https://nypost.com/wp-content/uploads/sites/2/2019/02/steinway-piano.jpg?quality=75&strip=all'
+ 
     },
     {
-        "id": 3,
-        "name": "Summer Smith",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$11.000",
-        "gender": "Female",
-        "origin": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+      id: 3,
+      name: 'Batería completa',
+      price: 899.99,
+      image: 'https://www.heartbeatpercussion.com/wp-content/uploads/2022/09/Heartbeat-DSM-Stain-0001.jpg'
+ 
     },
     {
-        "id": 4,
-        "name": "Beth Smith",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$12.500",
-        "gender": "Female",
-        "origin": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+      id: 4,
+      name: 'Violín',
+      price: 199.99,
+      image: 'https://images-na.ssl-images-amazon.com/images/I/71Kxqh0AisL._AC_UL600_SR600,600_.jpg'
+ 
     },
     {
-        "id": 5,
-        "name": "Jerry Smith",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$15.400",
-        "gender": "Male",
-        "origin": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+      id: 5,
+      name: 'Saxofón alto',
+      price: 599.99,
+      image: 'https://www.atelierdecelia.com/productos/imagenes/img_8987_2f0ed1c6ef9049f1b6bc75d681e30b67_20.jpg'
+ 
     },
     {
-        "id": 6,
-        "name": "Abadango Cluster Princess",
-        "status": "Alive",
-        "species": "Alien",
-        "price": "$20.000",
-        "gender": "Female",
-        "origin": {
-            "name": "Abadango",
-            "url": "https://rickandmortyapi.com/api/location/2"
-        },
-        "location": {
-            "name": "Abadango",
-            "url": "https://rickandmortyapi.com/api/location/2"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/6.jpeg",
-        "episode": [
-            "https://rickandmortyapi.com/api/episode/27"
-        ],
-        "url": "https://rickandmortyapi.com/api/character/6",
-        "created": "2017-11-04T19:50:28.250Z"
+      id: 6,
+      name: 'Teclado MIDI',
+      price: 149.99,
+      image: 'https://m.media-amazon.com/images/I/71wT7iyo4ZL._AC_SL1500_.jpg'
+ 
     },
     {
-        "id": 7,
-        "name": "Abradolf Lincler",
-        "status": "unknown",
-        "species": "Human",
-        "price": "$21.000",
-        "gender": "Male",
-        "origin": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "location": {
-            "name": "Testicle Monster Dimension",
-            "url": "https://rickandmortyapi.com/api/location/21"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/7.jpeg"
+      id: 7,
+      name: 'Flauta travesera',
+      price: 99.99,
+      image: 'https://www.saxandwoodwind.com.au/DesktopModules/Revindex.Dnn.RevindexStorefront/Portals/99/Gallery/540ec119-c87c-489a-90ee-b047c09d3520.jpg'
+ 
     },
     {
-        "id": 8,
-        "name": "Adjudicator Rick",
-        "status": "Dead",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Citadel of Ricks",
-            "url": "https://rickandmortyapi.com/api/location/3"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
+      id: 8,
+      name: 'Guitarra acústica',
+      price: 199.99,
+      image: 'https://www.musicmart.co.za/wp-content/uploads/2021/06/cort-ad810-left-han.jpg'
+ 
     },
     {
-        "id": 9,
-        "name": "Agency Director",
-        "status": "Dead",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/9.jpeg"
+      id: 9,
+      name: 'Bajo eléctrico',
+      price: 249.99,
+      image: 'https://www.musicarms.net/wp-content/uploads/2014/09/Face-cover-Squier-Vintage-Modified-Jaguar-Bass.jpg'
+ 
     },
     {
-        "id": 10,
-        "name": "Alan Rails",
-        "status": "Dead",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Worldender's lair",
-            "url": "https://rickandmortyapi.com/api/location/4"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/10.jpeg"
+      id: 10,
+      name: 'Trompeta',
+      price: 149.99,
+      image:'https://media.istockphoto.com/id/137129980/photo/brass-trumpet-on-white-background.jpg?s=612x612&w=0&k=20&c=nUMEf8IfRzZVqVhCCG9WOFIsk7k70Kj_VE-qTZLspFo='
+ 
     },
     {
-        "id": 11,
-        "name": "Albert Einstein",
-        "status": "Dead",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "Earth (C-137)",
-            "url": "https://rickandmortyapi.com/api/location/1"
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/11.jpeg"
+      id: 11,
+      name: 'Bongos',
+      price: 49.99,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyzgFJPwCiAtTyJZN8srzboS_VVyKmBHwgHPsZvBXz7SUg_mPdb5Mm1D0cT4p3P1u_dR8&usqp=CAU'
+ 
     },
     {
-        "id": 12,
-        "name": "Alexander",
-        "status": "Dead",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "Earth (C-137)",
-            "url": "https://rickandmortyapi.com/api/location/1"
-        },
-        "location": {
-            "name": "Anatomy Park",
-            "url": "https://rickandmortyapi.com/api/location/5"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg"
+      id: 12,
+      name: 'Acordeón',
+      price: 399.99,
+      image: 'https://tropicalmusiccolombia.com.co/wp-content/uploads/2020/09/VA1042-1.jpg'
+ 
     },
     {
-        "id": 13,
-        "name": "Alien Googah",
-        "status": "unknown",
-        "species": "Alien",
-        "price": "$15.000",
-        "gender": "unknown",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/13.jpeg"
+      id: 13,
+      name: 'Clarinete',
+      price: 179.99,
+      image: 'https://www.conservatoriocostadelsol.es/wp-content/uploads/instrumentos_clarinete.jpg'
+ 
     },
     {
-        "id": 14,
-        "name": "Alien Morty",
-        "status": "unknown",
-        "species": "Alien",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Citadel of Ricks",
-            "url": "https://rickandmortyapi.com/api/location/3"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/14.jpeg"
+      id: 14,
+      name: 'Gaita',
+      price: 79.99,
+      image: 'https://cdn.shopify.com/s/files/1/0072/7092/4388/products/house-of-scotland-Rosewood-Highland-Bagpipe-black-finish-white-plastic-ferrules-white-plastic-projecting-mounts.jpg?v=1594903569'
+ 
     },
     {
-        "id": 15,
-        "name": "Alien Rick",
-        "status": "unknown",
-        "species": "Alien",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Citadel of Ricks",
-            "url": "https://rickandmortyapi.com/api/location/3"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg"
-    },
-    {
-        "id": 16,
-        "name": "Amish Cyborg",
-        "status": "Dead",
-        "species": "Alien",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Earth (Replacement Dimension)",
-            "url": "https://rickandmortyapi.com/api/location/20"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg"
-    },
-    {
-        "id": 17,
-        "name": "Annie",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Female",
-        "origin": {
-            "name": "Earth (C-137)",
-            "url": "https://rickandmortyapi.com/api/location/1"
-        },
-        "location": {
-            "name": "Anatomy Park",
-            "url": "https://rickandmortyapi.com/api/location/5"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/17.jpeg"
-    },
-    {
-        "id": 18,
-        "name": "Antenna Morty",
-        "status": "Alive",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Citadel of Ricks",
-            "url": "https://rickandmortyapi.com/api/location/3"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/18.jpeg"
-    },
-    {
-        "id": 19,
-        "name": "Antenna Rick",
-        "status": "unknown",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "unknown",
-            "url": ""
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/19.jpeg"
-    },
-    {
-        "id": 20,
-        "name": "Ants in my Eyes Johnson",
-        "status": "unknown",
-        "species": "Human",
-        "price": "$15.000",
-        "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Interdimensional Cable",
-            "url": "https://rickandmortyapi.com/api/location/6"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/20.jpeg"
+      id: 15,
+      name: 'Armónica',
+      price: 24.99,
+      image: 'https://uy.xprostore.com/image/cache/data/imagenesweb/m590036-650x650.jpg'
+ 
     }
 ]
