@@ -1,18 +1,20 @@
 <template>
   <div>
-    <button class="btn text-light btn-outline-0 my-2 my-sm-0" @click="toggleCarrito">Shopping Cart</button>
+    <button class="btn text-light btn-outline-0 my-2 my-sm-0" @click="toggleCarrito">{{ textoBoton }}</button>
     <div v-if="mostrarCarrito">
       <div>
-        <h1>Carrito</h1>
-        <h1 v-for="(productos, i) of innerItemsCarrito" :key="i">
-          {{ productos }}
-        </h1>
+        <CartCard v-for="(productos, i) of innerItemsCarrito" :key="i"
+        :productName="productos.name"
+        :productPrice="productos.price"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CartCard from './CartCard.vue';
+
 export default {
   name: 'ShoppingCart',
   props: {
@@ -20,24 +22,22 @@ export default {
       type: Array,
       required: true
     },
-
     innerItemsCarrito: Array,
   },
   data() {
     return {
       mostrarCarrito: false,
       renderCarrito: [],
+      textoBoton: 'Shopping Cart',
     };
   },
-
-
   methods: {
     toggleCarrito() {
       this.mostrarCarrito = !this.mostrarCarrito;
+      this.textoBoton = this.mostrarCarrito ? 'Ocultar Carrito' : 'Shopping Cart';
     },
     renderizarItemsEnCarro() {
-      console.log("Renderizando")
-
+      console.log("Renderizando");
     }
   },
   watch: {
@@ -46,8 +46,10 @@ export default {
       this.renderizarItemsEnCarro();
     }
   },
+  components: {
+    CartCard
+  }
 }
-
 </script>
 
 <style scoped></style>

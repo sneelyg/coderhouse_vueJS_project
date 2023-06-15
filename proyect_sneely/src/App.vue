@@ -1,11 +1,13 @@
 <template>
-  <HeaderBakery :inventario="inventary" :itemsEnCarrito="itemsCarrito" />
-  <!-- <FormularioWeb/> -->
-  <MainPage :inventario="inventary" @itemAdded="addItemToCart" />
+  <div>
+    <HeaderBakery :inventario="inventary" :itemsEnCarrito="renderItemsCarrito" />
+    <!-- <FormularioWeb/> -->
+    <MainPage :inventario="inventary" @itemAdded="addItemToCart" />
 
-  <LoginBakery />
+    <LoginBakery />
 
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+  </div>
 </template>
 
 <script>
@@ -22,28 +24,26 @@ export default {
     return {
       inventary: [],  //Esta es la lista total de productos en inventario
       itemsCarrito: [],  //Esto almacena los ID de los elementos agregados al carrito
-      renderItemsCarrito: []  //Esto tiene cada elemento agregado al carrito completo.
     }
   },
   created() {
     this.inventary = products;
-
+  },
+  computed: {
+    renderItemsCarrito() {
+      const items = [];
+      for (const element of this.itemsCarrito) {
+        const producto = this.inventary.find(item => item.id === element);
+        if (producto) {
+          items.push(producto);
+        }
+      }
+      return items;
+    }
   },
   methods: {
     addItemToCart(productId) {
-      console.log(this.itemsCarrito)
-      this.itemsCarrito.push(productId)
-      this.renderCarrito()
-    },
-    renderCarrito() {
-      this.renderItemsCarrito = []
-      for (elements in this.itemsCarrito) {
-        for (instrumentos in inventary) {
-          if (instrumentos.id == elements) {
-            this.renderItemsCarrito.push(instrumentos)
-          }
-        }
-      }
+      this.itemsCarrito.push(productId);
     }
   },
   components: {
