@@ -15,7 +15,7 @@ import ProductCard from '../elements/ProductCard.vue'
 
 
 export default {
-    name: 'HeaderBakery',
+    name: 'MainPage',
     props: {
         inventario: {
             type: Object,

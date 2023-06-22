@@ -24,8 +24,18 @@ export default {
 
     },
     methods: {
-        innerAddItemToCart(){
+        innerAddItemToCart() {
             this.$emit('addItem', this.productId);
+            this.fetchData();
+        },
+        fetchData() {
+            fetch("https://6494c46d0da866a953682d8d.mockapi.io/api/sneelyg/v1/inventary")
+                .then(response => response.json())
+                .then(datos => {
+                    // Aquí puedes trabajar con los datos obtenidos
+                    console.log(datos);
+                })
+
         }
     }
 }

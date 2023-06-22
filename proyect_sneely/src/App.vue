@@ -1,10 +1,12 @@
 <template>
   <div>
     <HeaderBakery :inventario="inventary" :itemsEnCarrito="renderItemsCarrito" />
-    <!-- <FormularioWeb/> -->
-    <MainPage :inventario="inventary" @itemAdded="addItemToCart" />
+ 
+    <router-view />
 
-    <LoginBakery />
+    <!-- <MainPage :inventario="inventary" @itemAdded="addItemToCart" />
+
+    <LoginBakery /> -->
 
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
@@ -13,8 +15,8 @@
 <script>
 import HelloWorld from './components/elements/HelloWorld.vue'
 import HeaderBakery from './components/elements/HeaderBakery.vue'
-import LoginBakery from './components/elements/LoginBakery.vue'
-import MainPage from './components/views/MainPage.vue'
+// import LoginBakery from './components/elements/LoginBakery.vue'
+// import MainPage from './components/views/MainPage.vue'
 import products from './assets/products.js'
 //import FormularioWeb from './components/elements/FormularioWeb.vue'
 
@@ -49,8 +51,8 @@ export default {
   components: {
     HelloWorld,
     HeaderBakery,
-    LoginBakery,
-    MainPage,
+    // LoginBakery,
+    // MainPage,
     //FormularioWeb,
   }
 }
