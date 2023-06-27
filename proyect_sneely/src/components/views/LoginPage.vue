@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <h1>TEST COMPONENTES HEADER</h1>
-    </div>
+       <LoginBakery />
 </template>
 
 <script>
@@ -11,6 +9,9 @@ export default {
     name: 'HeaderBakery',
     props:{
         
+    },
+    components:{
+        LoginBakery
     }
 }
 

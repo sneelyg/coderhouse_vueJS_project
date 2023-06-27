@@ -26,7 +26,7 @@
 
                     <li class="nav-item">
                         <button class="btn  btn-outline-success my-2 my-sm-0" type="submit">
-                            <ShoppingCart :innerItemsCarrito="itemsEnCarrito" :inventario="inventario" />
+                            <ShoppingCart :innerItemsCarrito="itemsEnCarrito" :inventario="inventario" @deleteItemHeader="handleDeleteItemHeader"/>
                         </button>
                     </li>
                 </ul>
@@ -50,6 +50,12 @@ export default {
     components: {
         ShoppingCart
     },
+    methods:{
+        handleDeleteItemHeader(itemAEliminar){
+            console.log("remove desde header")
+            this.$emit('borrarItemDesdeHeader', itemAEliminar)
+        }
+    }
 }
 
 </script>
