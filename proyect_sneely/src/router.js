@@ -6,6 +6,7 @@ import VueRouter from "vue-router";
 // import PostId from "./views/PostId.vue";
 import MainPage from "./components/views/MainPage.vue"
 import LoginPage from "./components/views/LoginPage.vue"
+import RegisterPage from "./components/views/RegisterPage.vue"
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,8 @@ const routes = [
  },
   { path: "/login", 
   component: LoginPage, name: "login-page", props: true },
+  { path: "/register", 
+  component: RegisterPage, name: "register-page", props: true },
 ];
 
 const router = new VueRouter({

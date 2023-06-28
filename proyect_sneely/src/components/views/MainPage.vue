@@ -14,7 +14,7 @@
 
 <script>
 import ProductCard from '../elements/ProductCard.vue'
-import products from '../../assets/products.js'
+// import products from '../../assets/products.js'
 import HeaderBakery from '../elements/HeaderBakery.vue'
 
 
@@ -25,10 +25,11 @@ export default {
     data() {
         return {
             itemsCarrito: [],  //Esto almacena los elementos agregados al carrito
+            inventary: null
         }
     },
-    created() {
-        this.inventary = products;
+    mounted() {
+        this.fetchData();
     },
     components: {
         ProductCard,
@@ -43,10 +44,20 @@ export default {
             console.log(this.itemsCarrito)
             // this.$emit('itemAdded', productId);
         },
-        eliminarItemCarrito(borrarItem){
+        eliminarItemCarrito(borrarItem) {
             console.log("borrando en mainPage")
             console.log(borrarItem)
-            
+
+        },
+        fetchData() {
+            fetch('https://6494c46d0da866a953682d8d.mockapi.io/api/sneelyg/v1/inventary')
+                .then(response => response.json())
+                .then(data => {
+                    this.inventary = data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
     },
 }

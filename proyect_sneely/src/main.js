@@ -4,9 +4,11 @@ import router from "./router"
 import 'bootstrap' 
 import Vuex from 'vuex'
 import store from './store'
+import vueForm from 'vue-form'
 
 
 Vue.use(Vuex)
+Vue.use(vueForm);
 
 Vue.config.productionTip = false
 new Vue({
