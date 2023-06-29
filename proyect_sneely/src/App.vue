@@ -6,20 +6,24 @@
 
 <script>
 
-
 export default {
   name: 'App',
   components: {
 
-  }
+  },
+  created() {
+    this.$store.dispatch('cargarInventario'); 
+  },
 }
+
 </script>
 
-<style>
 
+<style>
 body {
   background-color: #2c3e50;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,6 +32,6 @@ body {
   color: #2c3e50;
   margin-top: 60px;
 }
-@import'~bootstrap/dist/css/bootstrap.css'
 
+@import'~bootstrap/dist/css/bootstrap.css'
 </style>

@@ -1,11 +1,10 @@
 <template>
     <div>
-        <HeaderBakery :inventario="inventary" :itemsEnCarrito="itemsCarrito" @borrarItemDesdeHeader="eliminarItemCarrito" />
+        <HeaderBakery :inventario="this.$store.inventario" :itemsEnCarrito="itemsCarrito" @borrarItemDesdeHeader="eliminarItemCarrito" />
         <div>
-
             <h1 class="text-secondary p-5 m-5 bg-black">Choose your weapon and join the band!</h1>
             <div class="row justify-content-around mx-4">
-                <ProductCard v-for="(item, i) in inventary" :key="i" :producto="item" @addItem="handleAddItem" />
+                <ProductCard v-for="(item, i) in this.$store.state.inventario" :key="i" :producto="item" @addItem="handleAddItem" />
 
             </div>
         </div>
@@ -28,8 +27,8 @@ export default {
             inventary: null
         }
     },
-    mounted() {
-        this.fetchData();
+    created() {
+         this.$store.dispatch('cargarInventario'); 
     },
     components: {
         ProductCard,
@@ -48,16 +47,6 @@ export default {
             console.log("borrando en mainPage")
             console.log(borrarItem)
 
-        },
-        fetchData() {
-            fetch('https://6494c46d0da866a953682d8d.mockapi.io/api/sneelyg/v1/inventary')
-                .then(response => response.json())
-                .then(data => {
-                    this.inventary = data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
         }
     },
 }

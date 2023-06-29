@@ -1,23 +1,23 @@
 <template>
     <div>
         <HeaderBakery :inventario="this.$store.state.inventario"/>
-        <FormularioRegistro />
+        <FormularioProducto />
     </div>
 </template>
 
 <script>
 // import LoginBakery from '../elements/LoginBakery.vue'
-import FormularioRegistro from '../elements/FormularioRegistro.vue';
+import FormularioProducto from '../elements/FormularioProducto.vue';
 import HeaderBakery from '../elements/HeaderBakery.vue';
 
 export default {
-    name: 'RegisterPage',
+    name: 'RegisterProduct',
     props: {
 
     },
     components: {
-        FormularioRegistro,
-        HeaderBakery
+        HeaderBakery,
+        FormularioProducto
     }
 }
 

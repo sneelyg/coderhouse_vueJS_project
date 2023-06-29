@@ -2,9 +2,8 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h3>FormularioRegistro</h3>
-            <h1>{{ this.formstate.$valid }}</h1>
             <div class="row justify-content-center">
-                <vue-form @submit.prevent="onSubmit" :state="formstate">
+                <vue-form @submit.prevent="onSubmit" :state="formstate" v-model="formstate">
                     <div class="col-12">
                         <validate tag="label">
                             <span>Nombre*</span>
@@ -48,7 +47,7 @@
 
                     <div class="col-12">
                         <validate tag="label" :custom="{ 'check-password': checkPassword }">
-                            <span>Password*</span>
+                            <span>Password* (Pass123)</span>
                             <input type="password" id="password" required name="password" v-model="model.password"
                                 class="form-control">
                             <field-messages name="password" show="$touched">
@@ -59,7 +58,7 @@
                     </div>
                     <div class="col-12">
                         <validate tag="label" :custom="{ 'check-coincidence': checkCoincidence }">
-                            <span>Repite Password*</span>
+                            <span>Repite Password* (Pass123)</span>
                             <input type="password" id="password2" required name="password2" v-model="model.password2"
                                 class="form-control">
                             <field-messages name="password2" show="$touched">
@@ -67,7 +66,7 @@
                             </field-messages>
                         </validate>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" >
                         <button type="submit" class="btn btn-primary">Registrarse</button>
                     </div>
                 </vue-form>
@@ -90,13 +89,12 @@ export default {
 
             formstate: {},
             model: {
-                firstname: "",
-                lastname: "",
-                username: "",
-                email: "",
-                age: 0,
-                password: "",
-                password2: ""
+                firstname: "John",
+                lastname: "Doe",
+                username: "test",
+                email: "johndoe@example.com",
+                password: "Pass123",
+                password2: "Pass123"
             },
 
         };
@@ -120,14 +118,10 @@ export default {
             alert("Formulario Enviado")
         },
         onSubmit() {
-            console.log(this.formstate)
-            this.sendData();
-            if (this.formstate.$valid) {
-                alert("Form Sent!")
-                console.log(this.model)
-                
-                return;
-            }
+            console.log(this.formstate);
+        
+                this.sendData();
+            
         },
         checkPassword(value) {
 
@@ -139,39 +133,48 @@ export default {
             return (this.model.password === value);
         },
         sendData() {
-  const data = {
-    username: this.model.username,
-    password: this.model.password,
-    email: this.model.email,
-    nombre: this.model.firstname,
-    apellido: this.model.lastname,
-  };
-  console.log("enviando:");
-  console.log(data);
-  axios
-    .post('https://6494c46d0da866a953682d8d.mockapi.io/api/sneelyg/v1/users', data)
-    .then(response => {
-      // Maneja la respuesta del servidor
-      console.log(response.data);
+            const data = {
+                username: this.model.username,
+                password: this.model.password,
+                email: this.model.email,
+                nombre: this.model.firstname,
+                apellido: this.model.lastname,
+            };
+            console.log("enviando:");
+            console.log(data);
+            axios
+                .post('https://6494c46d0da866a953682d8d.mockapi.io/api/sneelyg/v1/users', data)
+                .then(response => {
+                    // Maneja la respuesta del servidor
+                    console.log(response.data);
 
-      // Obtener el código HTML de la respuesta
-      const html = response.data;
+                    // Obtener el código HTML de la respuesta
+                    const html = response.data;
 
-      // Mostrar el código HTML en la consola
-      console.log("Código HTML de la respuesta:");
-      console.log(html);
+                    // Mostrar el código HTML en la consola
+                    console.log("Código HTML de la respuesta:");
+                    console.log(html);
 
-      // Verificar si el código de respuesta es 200
-      if (response.status === 200) {
-        // Mostrar una alerta si el código es 200
-        alert("¡El código de respuesta es 200!");
-      }
-    })
-    .catch(error => {
-      // Maneja el error
-      console.error(error);
-    });
-}
+                    // Verificar si el código de respuesta es 200
+                    if (response.status === 201) {
+                        // Mostrar una alerta si el código es 200
+                        alert("Registro Exitoso");
+                        this.redirectToLogin();
+                    }
+                    else {
+                        // Mostrar una alerta si el código es 200
+                        alert("Registro Fallido");
+
+                    }
+                })
+                .catch(error => {
+                    // Maneja el error
+                    console.error(error);
+                });
+        },
+        redirectToLogin() {
+            this.$router.push('/login')
+        }
 
 
 
