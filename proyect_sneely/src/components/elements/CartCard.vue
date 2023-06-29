@@ -21,13 +21,20 @@ export default {
             type: Object,
             required: true
         },
+        id: {
+            type: Number,
+            required: true
+        },
 
 
     },
+   
     methods: {
         removeFromCart() {
-            console.log("Remove Item desde cartCard")
-            this.$emit('deleteItem', this.producto);
+            console.log("Remove Item desde cartCard");
+            console.log(this.id);
+            this.$store.dispatch('eliminarItemCarrito', this.id)
+            this.$store.dispatch('actualizarCarritoUsuario')
 
         },
         fetchData() {
@@ -39,7 +46,9 @@ export default {
                 })
 
         }
-    }
+    },
+
+   
 }
 
 </script>

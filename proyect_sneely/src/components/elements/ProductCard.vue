@@ -6,7 +6,7 @@
 
             <p class="card-text text-light">{{ producto.name }}</p>
             <p class="card-text text-light">{{ producto.price }}</p>
-            <button class="btn btn-light text-dark" @click="innerAddItemToCart"> Add to Cart</button>
+            <button class="btn btn-light text-dark" @click="innerAddItemToCart" v-show="login && !isAdmin"> Add to Cart</button>
         </div>
     </div>
 </template>
@@ -16,8 +16,15 @@
 
 export default {
     name: 'ProductCard',
+    data() {
+        return {
+            login: false,
+            isAdmin: false,
+
+        }
+    },
     props: {
-        producto:{
+        producto: {
             type: Object,
             required: true
 
@@ -30,10 +37,25 @@ export default {
 
     },
     methods: {
-        innerAddItemToCart(){
+        innerAddItemToCart() {
             this.$emit('addItem', this.producto);
+            this.$store.dispatch('agregarItemACarrito', this.producto.id);
+            this.$store.dispatch('actualizarCarritoUsuario');
+        }
+    },
+    mounted() {
+        // Comprobar si existe la variable "current_user" en el localStorage
+        if (localStorage.getItem('current_user')) {
+            this.login = true;
+            this.isAdmin = JSON.parse(localStorage.getItem('current_user')).isAdmin;
+            console.log(this.login, this.isAdmin);
+        } else {
+            this.login = false;
+            this.isAdmin = false;
+            console.log(this.login, this.isAdmin);
         }
     }
+
 }
 
 </script>

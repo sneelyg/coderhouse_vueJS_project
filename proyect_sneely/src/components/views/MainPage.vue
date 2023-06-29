@@ -1,20 +1,21 @@
 <template>
     <div>
-        <HeaderBakery :inventario="inventary" :itemsEnCarrito="itemsCarrito" @borrarItemDesdeHeader="eliminarItemCarrito" />
+        <HeaderBakery :inventario="this.$store.inventario" :itemsEnCarrito="itemsCarrito" @borrarItemDesdeHeader="eliminarItemCarrito" />
         <div>
-
+            <h5>{{ this.$store.state.items_carrito }}</h5>
             <h1 class="text-secondary p-5 m-5 bg-black">Choose your weapon and join the band!</h1>
             <div class="row justify-content-around mx-4">
-                <ProductCard v-for="(item, i) in inventary" :key="i" :producto="item" @addItem="handleAddItem" />
+                <ProductCard v-for="(item, i) in this.$store.state.inventario" :key="i" :producto="item" @addItem="handleAddItem" />
 
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
 import ProductCard from '../elements/ProductCard.vue'
-import products from '../../assets/products.js'
+// import products from '../../assets/products.js'
 import HeaderBakery from '../elements/HeaderBakery.vue'
 
 
@@ -25,10 +26,11 @@ export default {
     data() {
         return {
             itemsCarrito: [],  //Esto almacena los elementos agregados al carrito
+            inventary: null
         }
     },
     created() {
-        this.inventary = products;
+         this.$store.dispatch('cargarInventario'); 
     },
     components: {
         ProductCard,
@@ -43,10 +45,10 @@ export default {
             console.log(this.itemsCarrito)
             // this.$emit('itemAdded', productId);
         },
-        eliminarItemCarrito(borrarItem){
+        eliminarItemCarrito(borrarItem) {
             console.log("borrando en mainPage")
             console.log(borrarItem)
-            
+
         }
     },
 }

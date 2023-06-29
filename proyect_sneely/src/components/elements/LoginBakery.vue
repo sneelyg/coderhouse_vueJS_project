@@ -1,65 +1,96 @@
 <template>
-      <div class="row justify-content-center">
-    <div class="card bg-dark mx-3 my-1 p-3 justify-content-center" style="width: 25rem; height: 18rem ;">
-        <form action="">
-            <div class="row">
-                <div class="col-6 bg-dark d-inline my-1">
-                    <label class="text-light" for="">Username</label>
-                </div>
-                <div class="col-6 bg-dark d-inline my-1">
-                    <input type="text" id="name" v-model="nombre" />
-                </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3>Login</h3>
+            <p>Para fácil acceso entra con </p>
+            <p>Usuario no-admin: username: "1" y password: "1" </p>
+            <p>Usuario admin: username: "2" y password: "2" </p>
+            <div class="row justify-content-center">
+                <vue-form @submit.prevent="onSubmit" :state="formstate">
+                    <div class="col-12">
+                        <validate tag="label">
+                            <span>Username</span>
+                            <input type="text" id="username" required name="username" v-model="model.username"
+                                class="form-control">
+                            <field-messages name="username" show="$touched">
+                                <div slot="required">El username es requerido</div>
+                            </field-messages>
+                        </validate>
+                    </div>
+                    <div class="col-12">
+                        <validate tag="label">
+                            <span>Password</span>
+                            <input type="password" id="password" required name="password" v-model="model.password"
+                                class="form-control">
+                            <field-messages name="password" show="$touched">
+                                <div slot="required">El password es requerido</div>
+                            </field-messages>
+                        </validate>
+                    </div>
+
+                    <div class="col-12 my-3">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </vue-form>
             </div>
-
-            <div class="row">
-                <div class="col-6 bg-dark d-inline my-1">
-                    <label class="text-light" for="">Password</label>
-                </div>
-                <div class="col-6 bg-dark d-inline my-1">
-                    <input type="text" id="password" v-model="password" />
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 bg-dark d-inline my-3">
-                   <button>Login</button>
-                </div>
-            </div>
-
-
-        </form>
-
-
+        </div>
     </div>
-</div>
 </template>
 
 <script>
-
+import axios from 'axios';
 
 
 export default {
     name: 'LoginBakery',
-    props: {
-
-    },
-
+    props: {},
     data() {
         return {
-
-            nombre: "",
-            password: "",
-
+            formstate: {},
+            model: {
+                username: "",
+                password: ""
+            },
         }
     },
-    created() {
-
-    },
     methods: {
+        onSubmit() {
+            if (this.formstate.$valid) {
+                this.getUsers();
+            }
+        },
+        getUsers() {
+            axios.get('https://6494c46d0da866a953682d8d.mockapi.io/api/sneelyg/v1/users')
+                .then(response => {
+                    const users = response.data;
+                    const foundUser = users.find(user => user.username === this.model.username && user.password === this.model.password);
+                    if (foundUser) {
+                        // Guardar el ID del usuario en el local storage
+                        const current_user=  JSON.stringify(foundUser);
+                        localStorage.setItem('current_user', current_user);
+                        localStorage.setItem('isAdmin', JSON.parse(current_user).isAdmin);
+                        this.$store.dispatch('cargarCurrentUser', foundUser.id);
+                        this.$store.dispatch('setFullUser', JSON.stringify(foundUser));
 
+
+
+                        console.log("cart items" + foundUser.cartItems)
+                        this.$store.dispatch('cargarCarritoUser', foundUser.cartItems);
+                        alert("Login Exitoso: " + this.model.username);
+                        this.redirectToHome();
+                    } else {
+                        alert("Usuario o contraseña no válidos");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+        redirectToHome() {
+            this.$router.push('/')
+        }
     }
 }
-
 </script>
 
 <style scoped></style>
