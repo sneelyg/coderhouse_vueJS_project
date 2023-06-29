@@ -15,13 +15,14 @@ const routes = [
   // { path: "/", component: HomePage, name: "home" },
   // { path: "/somos-increibles", component: QuienesSomos, name: "quienes-somos" },
   // { path: "/posts/:id", component: PostId, name: "post-id" },
+  { path: "/login", 
+  component: LoginPage, name: "login-page", props: true },
   { path: "/", 
   component: MainPage, 
   name: "main-page",
   props: true
  },
-  { path: "/login", 
-  component: LoginPage, name: "login-page", props: true },
+ 
   { path: "/user/register", 
   component: RegisterPage, name: "register-page", props: true },
   { path: "/product/register", 

@@ -32,6 +32,8 @@ export default {
     methods: {
         innerAddItemToCart(){
             this.$emit('addItem', this.producto);
+            this.$store.dispatch('agregarItemACarrito',this.producto.id); 
+            this.$store.dispatch('actualizarCarritoUsuario');
         }
     }
 }

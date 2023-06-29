@@ -2,6 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h3>Login</h3>
+            <p>Para fácil acceso entra con username: "1" y password: "1" </p>
 
             <div class="row justify-content-center">
                 <vue-form @submit.prevent="onSubmit" :state="formstate">
@@ -64,9 +65,10 @@ export default {
                     const foundUser = users.find(user => user.username === this.model.username && user.password === this.model.password);
                     if (foundUser) {
                         // Guardar el ID del usuario en el local storage
-                        localStorage.setItem('current_user', foundUser.id);
-                        this.$store.dispatch('cargarCurrentUser',foundUser.id); 
-                        
+                        localStorage.setItem('current_user', JSON.stringify(foundUser));
+                        this.$store.dispatch('cargarCurrentUser', foundUser.id);
+                        this.$store.dispatch('setFullUser', JSON.stringify(foundUser));
+
                         console.log("cart items" + foundUser.cartItems)
                         this.$store.dispatch('cargarCarritoUser', foundUser.cartItems);
                         alert("Login Exitoso: " + this.model.username);
