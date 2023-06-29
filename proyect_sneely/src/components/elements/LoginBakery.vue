@@ -65,6 +65,10 @@ export default {
                     if (foundUser) {
                         // Guardar el ID del usuario en el local storage
                         localStorage.setItem('current_user', foundUser.id);
+                        this.$store.dispatch('cargarCurrentUser',foundUser.id); 
+                        
+                        console.log("cart items" + foundUser.cartItems)
+                        this.$store.dispatch('cargarCarritoUser', foundUser.cartItems);
                         alert("Login Exitoso: " + this.model.username);
                         this.redirectToHome();
                     } else {

@@ -2,12 +2,14 @@
     <div>
         <HeaderBakery :inventario="this.$store.inventario" :itemsEnCarrito="itemsCarrito" @borrarItemDesdeHeader="eliminarItemCarrito" />
         <div>
+            <h5>{{ this.$store.state.items_carrito }}</h5>
             <h1 class="text-secondary p-5 m-5 bg-black">Choose your weapon and join the band!</h1>
             <div class="row justify-content-around mx-4">
                 <ProductCard v-for="(item, i) in this.$store.state.inventario" :key="i" :producto="item" @addItem="handleAddItem" />
 
             </div>
         </div>
+
     </div>
 </template>
 
